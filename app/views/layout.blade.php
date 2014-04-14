@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Territorio Virtual</title>
+	<title>@yield ('title')</title>
 	<link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/css/global.css')}}">
-	
 </head>
 <body>
-	<header>
-		<nav id="mainMenu">
-			<img src="{{asset('assets/images/logo.png')}}" alt="Logo" id="logo">
-			<ul>
-				<li>{{link_to('/', '', array('id' => 'btnHome'))}}</li>
-				<li>{{link_to('quienessomos', 'Quienes Somos', array('class' => 'btnMainMenu'))}}</li>
-				<li>{{link_to('nuestrotrabajo', 'Nuestro Trabajo', array('class' => 'btnMainMenu'))}}</li>
-			</ul>
-			<img src="{{asset('assets/images/comuniquese.png')}}" alt="Comuniquese" id="imgContact">
-		</nav>
-	</header>
+	<div id="header">
+		<header>
+			<nav id="mainMenu">
+				<img id="logo" src="{{asset('assets/images/logo.png')}}" alt="Logo">
+				<ul>
+					<li>{{link_to('/', '', array('id' => 'btnHome'))}}</li>
+					<li>{{link_to('quienessomos', 'Quienes Somos', array('class' => 'btnMainMenu'))}}</li>
+					<li>{{link_to('nuestrotrabajo', 'Nuestro Trabajo', array('class' => 'btnMainMenu'))}}</li>
+				</ul>
+				<img id="imgContact" src="{{asset('assets/images/comuniquese.png')}}" alt="Comuniquese">
+			</nav>
+			@yield ('banner')
+		</header>
+	</div>
+
 	<section id="body">
+		@yield ('pageContent')
 		<nav id="secondaryMenu">
 			<ul>
 				<li>
@@ -64,23 +68,7 @@
 				</li>
 			</ul>
 		</nav>
-		<div id="homeContent">
-			<div id="welcome">
-				<h2>Bienvenidos a Nuestro Sitio Web</h2>
-				<h1>Comuniquese</h1>
-				<h3>
-					Somos su equipo de trabajo
-				</h3>
-				<ul>
-					<li>Soporte en linea</li>
-					<li>Asesoría</li>
-					<li>Cotizaciones</li>
-					<li>Acceso Remoto</li>
-					<li>Sugerencias</li>
-					<li>Entre otros</li>
-				</ul>
-			</div>
-		</div>
+		@yield ('homeContent')
 	</section>
 	<footer>
 		<div id="foot">
